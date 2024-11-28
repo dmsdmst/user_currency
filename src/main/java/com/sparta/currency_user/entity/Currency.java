@@ -7,10 +7,11 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 
 import java.math.BigDecimal;
+import java.sql.Time;
 
 @Entity
 @Getter
-public class Currency {
+public class Currency extends TimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
