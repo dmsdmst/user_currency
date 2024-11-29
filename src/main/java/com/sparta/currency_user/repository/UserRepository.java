@@ -6,4 +6,12 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
+    User getByEmail(String email);
+
+    default User findByIdOrElseThrow(Long id){
+        if(id == null){
+            return null;
+        }
+        return findById(id).orElseThrow(() -> new IllegalArgumentException("찾을 수 없는 유저입니다"));
+    }
 }
